@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://admin.smartwx.info/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>smartadmin-简致微信管理系统</title>
+    <meta name="keywords" content="smartadmin,简致微信管理系统">
+    <meta name="description" content="smartadmin-简致微信管理系统！">
+    <meta name="author" content="hermit">
+    <link rel="stylesheet" href="./layui.css">
+    <link rel="stylesheet" href="./iconfont.css">
+    <link rel="stylesheet" href="./login.css">
+<script src="./push.js"></script><script src="./hm.js"></script><link id="layuicss-layer" rel="stylesheet" href="./layer.css" media="all"></head>
+<body>
+<div class="sm-login">
+    <div class="sm-login-center">
+        <div class="sm-login-left">
+            <h1>简致微信管理系统</h1>
+            <p class="talk">因为简单，所以致美</p>
+            <img src="./login.png" class="show">
+        </div>
+        <div class="sm-login-right">
+            <div class="sm-content">
+                <div id="form_login">
+                    <h3 class="login-title">登录 <span class="right"><span style="color: #ccc;">还没有帐号？</span> <a href="javascript:showReg();" class="gr">马上注册</a></span></h3>
+                    <div class="layui-form layui-form-pane" id="login">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><img src="./login-user.png"></label>
+                            <div class="layui-input-block ">
+                                <input type="text" name="userName" id="username" autocomplete="off" lay-verify="required" placeholder="请输入您的用户名" class="layui-input ">
+                            </div>
+                        </div>
+                        <div class="layui-form-item ">
+                            <label class="layui-form-label"><img src="./login-pwd.png"></label>
+                            <div class="layui-input-block  ">
+                                <input type="password" name="userPwd" id="password" autocomplete="off" lay-verify="required" placeholder="请输入您的密码" class="layui-input ">
+                            </div>
+                        </div>
+                        <div class="layui-form-item  layui-form-icon" style="margin-top: 30px;">
+                            <input type="checkbox" name="remember" title="记住密码" lay-skin="primary" id="remember"><div class="layui-unselect layui-form-checkbox" lay-skin="primary"><span>记住密码</span><i class="layui-icon layui-icon-ok"></i></div>
+                        </div>
+                        <div class="layui-form-item">
+                            <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid" id="SM-login">登录</button>
+                        </div>
+                        <!--<div class="form_reg_btn">-->
+                            <!--<span style="color: #666;">还没有帐号？</span> <a href="javascript:showReg();" class="gr">马上注册</a>-->
+                        <!--</div>-->
+                        <!--<div class="layui-form-item  login-third">-->
+                        <!--<p><i class="line"></i>  第三方登录  <i class="line"></i></p>-->
+                        <!--<div><a href="javascript:void(0);" class="login-third-wx"></a></div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div id="form_reg" style="display: none;">
+                    <h3 class="login-title" style="margin-bottom: 20px;">注册 <span class="right"><span style="color: #ccc;">已有帐号？</span> <a href="javascript:showLogin();" class="gr">去登陆</a></span></h3>
+                    <div class="layui-form layui-form-pane" id="reg">
+                        <!--<a href="http://wpa.qq.com/msgrd?v=3&uin=1154808491&site=qq&menu=yes/" target="_blank" style="color: #ff7f24;font-size: 30px; ">请联系管理员获取账号</a>-->
+                        <!--<div class="layui-form-item">-->
+                        <!--<div class="layui-input-block ">-->
+                        <!--<a href="http://wpa.qq.com/msgrd?v=3&uin=1154808491&site=qq&menu=yes/" target="_blank" style="color: #ff7f24;font-size: 25px; ">请联系管理员获取账号:1154808491</a>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><img src="./login-user.png"></label>
+                            <div class="layui-input-block ">
+                                <input type="text" id="reg_username" value="" autocomplete="off" lay-verify="required" placeholder="仅限QQ邮箱" class="layui-input ">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label"><img src="./login-pwd.png"></label>
+                            <div class="layui-input-block ">
+                                <input type="text" name="verificationCode" value="" id="reg_img_code" autocomplete="off" lay-verify="email" placeholder="请输入验证码" class="layui-input" style="width:210px;display: inline;">
+                                <img class="input-right" src="./getverifycode" id="imgcode" style="cursor: pointer;">
+                            </div>
+                        </div>
+                        <div class="layui-form-item ">
+                            <label class="layui-form-label"><img src="./login-pwd.png"></label>
+                            <div class="layui-input-block  ">
+                                <input type="text" name="userEmailCode" value="" id="reg_mail_code" autocomplete="off" lay-verify="required" placeholder="请输入邮箱验证码" class="layui-input" style="width:210px;display: inline;">
+                                <button id="reg_code_send" class="layui-btn layui-btn-normal input-right" type="button">发送验证码</button>
+                            </div>
+                        </div>
+                        <div class="layui-form-item ">
+                            <label class="layui-form-label"><img src="./login-pwd.png"></label>
+                            <div class="layui-input-block  ">
+                                <input type="password" name="userPwd" value="" id="reg_password" autocomplete="off" lay-verify="required" placeholder="请输入您的密码" class="layui-input ">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid" id="reg_btn">注册</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                    <!--<ul class="layui-tab-title">-->
+                    <!--<li class="layui-this">登录</li>-->
+                    <!--<li>注册</li>-->
+                    <!--</ul>-->
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+
+                        </div>
+                        <div class="layui-tab-item">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div id="weixinqr">-->
+    <!--<iframe src="https://open.weixin.qq.com/connect/qrconnect?appid=wx6808ef07b71427cb&scope=snsapi_login&redirect_uri=http://www.fangshenghuo.net/account/wechat?qr=true&state=https://jn.fangshenghuo.net&login_type=jssdk&self_redirect=default&style=black" frameborder="0"></iframe>-->
+<!--</div>-->
+
+<script src="./jquery-2.2.4.min.js"></script>
+<script src="./layui.js"></script>
+<script src="./smartAui.js"></script>
+<script src="./login.js"></script>
+</body></html>
